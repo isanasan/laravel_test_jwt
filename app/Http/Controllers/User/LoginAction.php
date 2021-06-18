@@ -22,6 +22,7 @@ class LoginAction extends Controller
      * Handle the incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Responder\TokenResponder $responder
      * @return \Illuminate\Http\Response
      */
     public function __invoke(Request $request, TokenResponder $responder): JsonResponse

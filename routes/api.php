@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['middleware' => 'api'], function ($router) {
+    Route::post('/users/login', App\Http\Controllers\User\LoginAction::class);
+
+    Route::post('/users/', App\Http\Controllers\User\RetrieveAction::class)
+        ->middleware('auth:jwt');
+});
